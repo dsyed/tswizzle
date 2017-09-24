@@ -20,13 +20,20 @@ password_elem.send_keys(os.environ['TM_PASS'])
 
 driver.find_element_by_id('login-btn').click()
 
-for _ in range(10):
+
+def watch_video(url, length):
+    """Auto watch a video on the Taylor Swift Tix page.
+
+    `url`       href value of link to video
+    `length`    length of video in seconds
+    """
     # Wait for page to load
-    time.sleep(3)
+    time.sleep(4)
 
     # Click music video
-    driver.find_element_by_css_selector('a[href="entry/activity/watch/music_video"]').click()
+    driver.find_element_by_css_selector('a[href="{}"]'.format(url)).click()
 
+    # Play & mute the video
     driver.switch_to_frame('watch-video-frame')
     driver.switch_to_frame('frame')
 
@@ -34,9 +41,15 @@ for _ in range(10):
     driver.find_element_by_class_name('ytp-mute-button').click()
 
     # Wait for music video to finish
-    time.sleep(255)
+    time.sleep(length)
 
+    # Reset selection
     driver.switch_to_default_content()
 
+for _ in range(10):
+    watch_video('entry/activity/watch/music_video', 255)
+    watch_video('entry/activity/watch/lyric_video', 214)
+    watch_video('entry/activity/watch/att_tsn', 105)
+    watch_video('entry/activity/watch/att_tasty_props', 56)
 
-# driver.close()
+driver.close()
