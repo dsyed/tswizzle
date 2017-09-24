@@ -4,6 +4,8 @@ import time
 
 from selenium import webdriver
 
+MUTED = False
+
 driver = webdriver.Chrome()
 driver.get('https://tickets.taylorswift.com/')
 
@@ -27,6 +29,8 @@ def watch_video(url, length):
     `url`       href value of link to video
     `length`    length of video in seconds
     """
+    global MUTED
+
     # Wait for page to load
     time.sleep(4)
 
@@ -38,7 +42,10 @@ def watch_video(url, length):
     driver.switch_to_frame('frame')
 
     driver.find_element_by_class_name('html5-video-player').click()
-    driver.find_element_by_class_name('ytp-mute-button').click()
+
+    if not MUTED:
+        driver.find_element_by_class_name('ytp-mute-button').click()
+        MUTED = True
 
     # Wait for music video to finish
     time.sleep(length)
