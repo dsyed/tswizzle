@@ -9,9 +9,11 @@ MUTED = False
 driver = webdriver.Chrome()
 driver.get('https://tickets.taylorswift.com/')
 
+# Agree to TOS (lol)
 driver.find_element_by_name('tc_approval').click()
 driver.find_element_by_id('tm-signup').click()
 
+# Login to Ticketmaster
 driver.switch_to_frame('loginFrame')
 
 username_elem = driver.find_element_by_id('login-input')
