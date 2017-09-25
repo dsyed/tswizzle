@@ -60,5 +60,6 @@ for _ in range(10):
     watch_video('entry/activity/watch/lyric_video', 214)
     watch_video('entry/activity/watch/att_tsn', 105)
     watch_video('entry/activity/watch/att_tasty_props', 56)
+    watch_video('entry/activity/watch/taylor_mountain', 423)
 
 driver.close()
