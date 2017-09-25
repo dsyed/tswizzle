@@ -34,7 +34,7 @@ def watch_video(url, length):
     global MUTED
 
     # Wait for page to load
-    time.sleep(4)
+    time.sleep(10)
 
     # Click music video
     driver.find_element_by_css_selector('a[href="{}"]'.format(url)).click()
