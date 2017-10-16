@@ -57,6 +57,7 @@ def watch_video(url, length):
 
 for _ in range(10):
     watch_video('entry/activity/watch/music_video', 255)
+    watch_video('entry/activity/watch/att_behind_scenes', 30)
     watch_video('entry/activity/watch/lyric_video', 214)
     watch_video('entry/activity/watch/att_tsn', 105)
     watch_video('entry/activity/watch/att_tasty_props', 56)
