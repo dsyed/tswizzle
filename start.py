@@ -52,8 +52,11 @@ def watch_video(url, length):
     # Wait for music video to finish
     time.sleep(length)
 
+
     # Reset selection
     driver.switch_to_default_content()
+
+    driver.find_element_by_css_selector('button[data-bdd="modal-close-button"]').click()
 
 for _ in range(10):
     watch_video('entry/activity/watch/music_video', 255)
